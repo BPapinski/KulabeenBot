@@ -16,5 +16,12 @@ namespace ChwesiukBotV2.commands
         {
             await ctx.Channel.SendMessageAsync("test command works correctly");
         }
+
+        [Command("add")]
+        public async Task Add(CommandContext ctx, int number1, int number2)
+        {
+            int result = number1 + number2;
+            await ctx.Channel.SendMessageAsync($"result is {result}");
+        }
     }
 }
