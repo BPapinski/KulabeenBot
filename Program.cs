@@ -1,4 +1,5 @@
-﻿using DSharpPlus;
+﻿using ChwesiukBotV2.commands;
+using DSharpPlus;
 using DSharpPlus.CommandsNext;
 using DSharpPlus.EventArgs;
 using System;
@@ -16,13 +17,14 @@ namespace ChwesiukBotV2
 
         static async Task Main(string[] args)
         {
+            
             var jsonReader = new JSONReader();
             await jsonReader.ReadJSON();
-            Console.WriteLine(jsonReader.token);
+            //Console.WriteLine(jsonReader.token);
 
             var discordConfig = new DiscordConfiguration()
             {
-                //Intents = DiscordIntents.All,
+                Intents = DiscordIntents.All,
                 Token = jsonReader.token,
                 TokenType = TokenType.Bot,
                 AutoReconnect = true,
@@ -31,6 +33,21 @@ namespace ChwesiukBotV2
             Client = new DiscordClient(discordConfig);
 
             Client.Ready += Client_Ready;
+
+
+            var commandsConfig = new CommandsNextConfiguration()
+            {
+                StringPrefixes = new string[] {jsonReader.prefix},
+                EnableMentionPrefix = true,
+                EnableDms = true,
+                // a lot of available setting here
+                EnableDefaultHelp = false,
+
+            };
+            
+            Commands = Client.UseCommandsNext(commandsConfig);
+
+            Commands.RegisterCommands<TestCommands>(); 
 
             await Client.ConnectAsync();
             await Task.Delay(-1); // keeps bot online infinitly ( as long as program is running)
