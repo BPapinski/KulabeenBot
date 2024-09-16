@@ -2,6 +2,8 @@
 using DSharpPlus;
 using DSharpPlus.CommandsNext;
 using DSharpPlus.EventArgs;
+using DSharpPlus.Interactivity;
+using DSharpPlus.Interactivity.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +14,7 @@ namespace ChwesiukBotV2
 {
     internal class Program
     {
-        private static DiscordClient Client { get; set; }
+        public static DiscordClient Client { get; set; }
         private static CommandsNextExtension Commands { get; set; }
 
         static async Task Main(string[] args)
@@ -32,6 +34,10 @@ namespace ChwesiukBotV2
 
             Client = new DiscordClient(discordConfig);
 
+            Client.UseInteractivity(new InteractivityConfiguration(){
+                Timeout = TimeSpan.FromMinutes(2)
+            });
+
             Client.Ready += Client_Ready;
 
 
@@ -48,6 +54,7 @@ namespace ChwesiukBotV2
             Commands = Client.UseCommandsNext(commandsConfig);
 
             Commands.RegisterCommands<TestCommands>(); 
+            Commands.RegisterCommands<Interactivity>(); 
 
             await Client.ConnectAsync();
             await Task.Delay(-1); // keeps bot online infinitly ( as long as program is running)
