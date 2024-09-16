@@ -12,7 +12,6 @@ namespace ChwesiukBotV2.commands
 {
     public class TestCommands : BaseCommandModule
     {
-        
         [Command("test")]
         public async Task MyFirstCommand(CommandContext ctx)
         {
@@ -26,19 +25,9 @@ namespace ChwesiukBotV2.commands
             await ctx.Channel.SendMessageAsync($"result is {result}");
         }
 
-
         [Command("embed")]
         public async Task EmbedMessage(CommandContext ctx)
         {
-            /*
-            var message = new DiscordMessageBuilder().AddEmbed(
-                new DiscordEmbedBuilder()
-                    .WithTitle("My first Discord Embed")
-                    .WithDescription($"This command was executed by {ctx.User.Username}")
-                    .WithColor(DiscordColor.Blue)
-            );
-            */
-
             var message = new DiscordEmbedBuilder
             {
                 Title = "My first Discord Embed",
@@ -47,14 +36,7 @@ namespace ChwesiukBotV2.commands
                 Url = "https://example.com",
                 Timestamp = DateTime.Now,
                 ImageUrl = "https://www.gasso.com/wp-content/uploads/2017/04/noimage.jpg", 
-                
-                
-
-
-
-
             };
-
             await ctx.Channel.SendMessageAsync(embed: message);
         }
     }
