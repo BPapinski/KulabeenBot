@@ -35,7 +35,7 @@ namespace ChwesiukBotV2.commands
                 Color = DiscordColor.Blue,
                 Url = "https://example.com",
                 Timestamp = DateTime.Now,
-                ImageUrl = "https://www.gasso.com/wp-content/uploads/2017/04/noimage.jpg", 
+                ImageUrl = "https://www.gasso.com/wp-content/uploads/2017/04/noimage.jpg",
             };
             await ctx.Channel.SendMessageAsync(embed: message);
         }

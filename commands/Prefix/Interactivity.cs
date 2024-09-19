@@ -16,7 +16,7 @@ namespace ChwesiukBotV2.commands
 
             var messageToRetrieve = await interactivity.WaitForMessageAsync(message => message.Content == "Hello");
 
-            if(messageToRetrieve.Result.Content == "Hello")
+            if (messageToRetrieve.Result.Content == "Hello")
             {
                 await ctx.Channel.SendMessageAsync($"{ctx.User.Username} said Hello");
             }
@@ -28,7 +28,7 @@ namespace ChwesiukBotV2.commands
             var interactivity = Program.Client.GetInteractivity();
 
             var messageToReact = await interactivity.WaitForReactionAsync(message => message.Message.Id == 1285215233090129951);
-            if(messageToReact.Result.Message.Id == 1285215233090129951)
+            if (messageToReact.Result.Message.Id == 1285215233090129951)
             {
                 await ctx.Channel.SendMessageAsync($"User {ctx.User.Username} used the emoji with name {messageToReact.Result.Emoji.Name}");
             }
@@ -62,7 +62,7 @@ namespace ChwesiukBotV2.commands
 
             var sentPoll = await ctx.Channel.SendMessageAsync(embed: pollMessage);
 
-            foreach( var emoji in emojiOptions)
+            foreach (var emoji in emojiOptions)
             {
                 await sentPoll.CreateReactionAsync(emoji);
             }
@@ -74,13 +74,13 @@ namespace ChwesiukBotV2.commands
             int count3 = 0;
             int count4 = 0;
 
-            foreach(var emoji in totalReactions)
+            foreach (var emoji in totalReactions)
             {
-                if(emoji.Emoji == emojiOptions[0])
+                if (emoji.Emoji == emojiOptions[0])
                 {
                     count1++;
                 }
-                if(emoji.Emoji == emojiOptions[1])
+                if (emoji.Emoji == emojiOptions[1])
                 {
                     count2++;
                 }

@@ -1,9 +1,11 @@
 ﻿using ChwesiukBotV2.commands;
+using ChwesiukBotV2.commands.Slash;
 using DSharpPlus;
 using DSharpPlus.CommandsNext;
 using DSharpPlus.EventArgs;
 using DSharpPlus.Interactivity;
 using DSharpPlus.Interactivity.Extensions;
+using DSharpPlus.SlashCommands;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,7 +42,7 @@ namespace ChwesiukBotV2
 
             Client.Ready += Client_Ready;
 
-
+            // Command Config Configuration
             var commandsConfig = new CommandsNextConfiguration()
             {
                 StringPrefixes = new string[] {jsonReader.prefix},
@@ -53,8 +55,17 @@ namespace ChwesiukBotV2
             
             Commands = Client.UseCommandsNext(commandsConfig);
 
+
+            // Enabling Client to use slash commands
+            var slashCommandsConfiguration = Client.UseSlashCommands();
+
+            // Registering prefix commands
             Commands.RegisterCommands<TestCommands>(); 
-            Commands.RegisterCommands<Interactivity>(); 
+            Commands.RegisterCommands<Interactivity>();
+
+            // Registering slash commands
+            slashCommandsConfiguration.RegisterCommands<BasicSL>();
+            slashCommandsConfiguration.RegisterCommands<Calculator>();
 
             await Client.ConnectAsync();
             await Task.Delay(-1); // keeps bot online infinitly ( as long as program is running)
