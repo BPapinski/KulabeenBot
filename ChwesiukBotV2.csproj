@@ -147,6 +147,7 @@
   <ItemGroup>
     <Compile Include="commands\Buttons\InteractionComponents.cs" />
     <Compile Include="commands\Buttons\UnderstandingButtons.cs" />
+    <Compile Include="commands\Components\DiscordComponentsCommands.cs" />
     <Compile Include="commands\Prefix\Interactivity.cs" />
     <Compile Include="commands\Prefix\TestCommands.cs" />
     <Compile Include="commands\Slash\BasicSL.cs" />
