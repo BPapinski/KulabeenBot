@@ -46,7 +46,7 @@ namespace ChwesiukBotV2.commands.Slash
         */
 
         [SlashCommand("MakeYourEmbed", "Allows you to make your own embed message")]
-        public async Task SlashCommandParameters(InteractionContext ctx, [Option("EmbedContent", "Type in anything you want")] string testParameter) // there is a lot of other thing that can be attached to discord message as file, user or anything
+        public async Task MakeEmbed(InteractionContext ctx, [Option("EmbedContent", "Type in anything you want")] string testParameter) // there is a lot of other thing that can be attached to discord message as file, user or anything
         {
             await ctx.DeferAsync();
 
@@ -73,8 +73,6 @@ namespace ChwesiukBotV2.commands.Slash
         [SlashCommand("Modal", "Show a modal")]
         public async Task Modal(InteractionContext ctx)
         {
-
-
             var modal = new DiscordInteractionResponseBuilder()
                 .WithTitle("Test Modal")
                 .WithCustomId("modal")

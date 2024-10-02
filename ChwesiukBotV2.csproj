@@ -14,7 +14,7 @@
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x64</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -47,6 +47,9 @@
     </Reference>
     <Reference Include="DSharpPlus.SlashCommands, Version=4.5.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\DSharpPlus.SlashCommands.4.5.0\lib\netstandard2.0\DSharpPlus.SlashCommands.dll</HintPath>
+    </Reference>
+    <Reference Include="DSharpPlus.VoiceNext, Version=4.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\DSharpPlus.VoiceNext.4.5.0\lib\netstandard2.0\DSharpPlus.VoiceNext.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.Bcl.AsyncInterfaces.5.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
@@ -150,6 +153,7 @@
     <Compile Include="commands\Components\DiscordComponentsCommands.cs" />
     <Compile Include="commands\Prefix\Interactivity.cs" />
     <Compile Include="commands\Prefix\TestCommands.cs" />
+    <Compile Include="commands\Slash\AudioCommands.cs" />
     <Compile Include="commands\Slash\BasicSL.cs" />
     <Compile Include="commands\Slash\Calculator.cs" />
     <Compile Include="JSONReader.cs" />

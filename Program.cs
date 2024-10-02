@@ -9,6 +9,8 @@ using DSharpPlus.EventArgs;
 using DSharpPlus.Interactivity;
 using DSharpPlus.Interactivity.Extensions;
 using DSharpPlus.SlashCommands;
+using DSharpPlus.VoiceNext;
+
 using System;
 using System.Linq;
 using System.Text;
@@ -20,6 +22,8 @@ namespace ChwesiukBotV2
     {
         public static DiscordClient Client { get; set; }
         private static CommandsNextExtension Commands { get; set; }
+
+        private static VoiceNextExtension voice { get; set; }
 
         static async Task Main(string[] args)
         {
@@ -37,6 +41,18 @@ namespace ChwesiukBotV2
             };
 
             Client = new DiscordClient(discordConfig);
+
+            // voice configuration 
+
+            var voiceConfiguration = new VoiceNextConfiguration
+            {
+                AudioFormat = AudioFormat.Default,
+                EnableIncoming = false,
+                PacketQueueSize = 50
+            };
+
+            voice = Client.UseVoiceNext(voiceConfiguration);
+
 
             Client.UseInteractivity(new InteractivityConfiguration()
             {
@@ -74,6 +90,7 @@ namespace ChwesiukBotV2
             // Registering slash commands
             slashCommandsConfiguration.RegisterCommands<BasicSL>();
             slashCommandsConfiguration.RegisterCommands<Calculator>();
+            slashCommandsConfiguration.RegisterCommands<AudioCommands>();
 
             //Registering Buttons commands
             Commands.RegisterCommands<UnderstandingButtons>();
@@ -182,6 +199,9 @@ namespace ChwesiukBotV2
         }
 
         // ends here
+
+        // Voice next
+
 
         private static Task Client_Ready(DiscordClient sender, ReadyEventArgs args)
         {

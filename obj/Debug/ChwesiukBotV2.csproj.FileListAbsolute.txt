@@ -40,3 +40,5 @@ C:\Users\barte\source\repos\ChwesiukBotV2\obj\Debug\ChwesiukBotV2.exe
 C:\Users\barte\source\repos\ChwesiukBotV2\obj\Debug\ChwesiukBotV2.pdb
 C:\Users\barte\source\repos\ChwesiukBotV2\bin\Debug\DSharpPlus.SlashCommands.dll
 C:\Users\barte\source\repos\ChwesiukBotV2\bin\Debug\DSharpPlus.SlashCommands.xml
+C:\Users\barte\source\repos\ChwesiukBotV2\bin\Debug\DSharpPlus.VoiceNext.dll
+C:\Users\barte\source\repos\ChwesiukBotV2\bin\Debug\DSharpPlus.VoiceNext.xml
